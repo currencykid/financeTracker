@@ -1,4 +1,7 @@
 class Stock < ActiveRecord::Base #class methods aren't tied to isntance varialbes,, class lvl methods defined using self before the name 
+	
+	has_many :user_stocks
+	has_many :users, through: :user_stocks
 
 	def self.find_by_ticker(ticker_symbol)
 		where(ticker: ticker_symbol).first
